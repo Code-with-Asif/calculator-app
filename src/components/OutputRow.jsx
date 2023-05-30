@@ -1,9 +1,15 @@
 import React from "react";
 import "./OutputRow.css";
-const OutputRow = () => {
+const OutputRow = (props) => {
   return (
     <div>
-      <input type="text" readOnly className="screen" />
+      <input
+        type="text"
+        readOnly
+        className="screen"
+        style={props.textSize}
+        value={props.value}
+      />
     </div>
   );
 };

@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Layout.css";
+import Output from "./Output";
 
 const Layout = () => {
+  let [input, setInput] = useState("0");
+  let [result, setResult] = useState("");
   const handleClick = () => {};
   return (
     <div className="frame">
       <div className="calculator">
-        <br />{" "}
+        <Output />
+
+        <br />
         <div className="keys">
           <input
             type="button"

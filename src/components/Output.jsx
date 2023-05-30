@@ -1,9 +1,12 @@
 import React from 'react'
-
+import OutputRow from "./OutputRow";
 const Output = (props) => {
   return (
-    <div>Output</div>
-  )
-}
+    <div>
+      <OutputRow value={99} textSize={{ fontsize: "20px" }} />
+      <OutputRow value={100} textSize={{ fontsize: "20px" }} />
+    </div>
+  );
+};
 
 export default Output
