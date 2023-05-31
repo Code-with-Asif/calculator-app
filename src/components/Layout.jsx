@@ -5,7 +5,25 @@ import Output from "./Output";
 const Layout = () => {
   let [input, setInput] = useState("0");
   let [result, setResult] = useState("");
-  const handleClick = () => {};
+  const handleClick = (event) => {
+    const value = event.target.value;
+    if (value === "=") {
+      if (input !== "") {
+        let res = "";
+        try {
+          res = Window.eval(input);
+        } catch (error) {
+          setResult("Math Error");
+        }
+        if (res === undefined) {
+          setResult("Math Error");
+        } else {
+          setResult(input + "=");
+          setInput(res);
+        }
+      }
+    }
+  };
   return (
     <div className="frame">
       <div className="calculator">
