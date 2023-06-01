@@ -11,7 +11,7 @@ const Layout = () => {
       if (input !== "") {
         let res = "";
         try {
-          res = Window.eval(input);
+          res = eval(input);
         } catch (error) {
           setResult("Math Error");
         }
@@ -22,12 +22,24 @@ const Layout = () => {
           setInput(res);
         }
       }
+    } else if (value === "C") {
+      setInput("0");
+      setResult("");
+    } else if (value === "DEL") {
+      let str = input;
+      str = str.substring(0, str.length - 1);
+      setInput(str);
+    } else if (input === "0") {
+      setInput(value);
+    } else {
+      setInput((input += value));
     }
   };
+
   return (
     <div className="frame">
       <div className="calculator">
-        <Output />
+        <Output user={input} answer={result} />
 
         <br />
         <div className="keys">
@@ -142,7 +154,7 @@ const Layout = () => {
           <input
             type="button"
             value="="
-            className="button-operator"
+            className="equal-sign"
             onClick={handleClick}
           />
         </div>
